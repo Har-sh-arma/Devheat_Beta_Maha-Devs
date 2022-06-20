@@ -1,3 +1,7 @@
 // This is for helpful URLs
 
 https://www.sololearn.com/learning/1014
+
+// JavaScript resources
+	a. https://www.youtube.com/watch?v=hdI2bqOjy3c
+	b. https://embed.plnkr.co/plunk/8ujYdL1BxZftGoS4Cf14
