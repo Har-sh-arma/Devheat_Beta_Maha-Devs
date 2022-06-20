@@ -1,0 +1,39 @@
+.food_menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 10px;
+  padding-left: 20px;
+  grid-row-gap: 20px;
+  background-color: #a8dadc;
+  padding-bottom: 10px;
+  margin-top: 70px;
+}
+.food_menu img{
+    padding-bottom: 10px;
+}
+.tikki_chaat {
+  padding-left: 15px;
+  padding-top: 7px;
+}
+.bhel {
+  padding-left: 5px;
+}
+
+#samosa {
+    padding-left: 19px;
+}
+#pani_puri{
+    padding-left: 22px;
+    
+}
+#vada{
+    padding-left: 15px;
+}
+#imvp{
+    padding-bottom: 15px;
+}
+#imns{
+    padding-top: -100px;
+}
+.food_menu div {
+}
