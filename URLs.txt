@@ -9,4 +9,4 @@ https://www.sololearn.com/learning/1014
 // styling resources
 	a. https://www.favicon.cc/  
 	b. https://htmlcolorcodes.com/color-names/
-	c. https://coolors.co/palettes/trending   /*useful for color schemes while developing*/
+	c. https://coolors.co/palettes/trending   /*useful for color schemes while developing*/  
