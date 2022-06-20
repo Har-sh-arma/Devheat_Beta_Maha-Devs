@@ -5,3 +5,8 @@ https://www.sololearn.com/learning/1014
 // JavaScript resources
 	a. https://www.youtube.com/watch?v=hdI2bqOjy3c
 	b. https://embed.plnkr.co/plunk/8ujYdL1BxZftGoS4Cf14
+
+// styling resources
+	a. https://www.favicon.cc/  
+	b. https://htmlcolorcodes.com/color-names/
+	c. https://coolors.co/palettes/trending   /*useful for color schemes while developing*/
