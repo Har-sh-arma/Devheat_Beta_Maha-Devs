@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   padding-top: 10px;
   padding-left: 20px;
+  padding-right: 34px;
   grid-row-gap: 20px;
   background-color: #a8dadc;
   padding-bottom: 10px;
@@ -34,5 +35,8 @@
 }
 #imns{
     padding-top: -100px;
+}
+#ns{
+  padding-left: 7px;
 }
 
