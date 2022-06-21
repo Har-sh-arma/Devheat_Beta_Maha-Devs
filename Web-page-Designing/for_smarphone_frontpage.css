@@ -1,3 +1,6 @@
+.main_OP {
+  height: 840px;
+}
 .secondary {
   background-color: #1d3557;
   margin-top: 70px;
@@ -10,7 +13,7 @@
   background-color: #a8dadc;
   padding: 10px;
 }
-.food_menu div{
+.food_menu div {
   text-align: center;
   padding: 10px;
 }
@@ -27,16 +30,6 @@
 .bhel {
   padding-left: 5px;
 }
-
-#samosa {
-  padding-left: 19px;
-}
-#pani_puri {
-  padding-left: 22px;
-}
-#vada {
-  padding-left: 15px;
-}
 #imvp {
   padding-bottom: 15px;
 }
@@ -46,11 +39,14 @@
 #ns {
   padding-left: 2px;
 }
+#tkc {
+  padding-top: 5.5px;
+}
 
 .table_cont {
   margin-top: 100px;
   margin-right: 0px;
-  padding-bottom: 350px;
+  padding-bottom: 100%;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -81,4 +77,25 @@ tr {
 }
 tr:nth-child(odd) {
   background-color: #457b9d;
+}
+.food_menu span {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1d3557;
+  font-weight: 500;
+}
+
+button {
+  background-color: #CCFF66;
+  padding: 8px 120px;
+  margin-top: 30px;
+  margin-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  color: #1d3557;
+  border-style: none;
+}
+
+button:hover{
+  background-color: #f0cb24;
 }
