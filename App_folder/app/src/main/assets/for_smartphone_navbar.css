@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f1faee;
+}
+
+.nav_bar {
+  position: absolute;
+  width: 200px;
+  height: 1065px;
+  background-color: #1d3557;
+  left: -200px;
+  margin-top: -70px;
+}
+
+.active, .nav_bar:hover {
+    left: 0;
+}
+
+.nav_bar ul li {
+  list-style: none;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  color: #f1faee;
+
+}
+
+.nav_bar li:hover{
+    font-size: 21px;
+    color: #a8dadc;
+    background-color: #214e8e;
+}
+
+
+.nav_bar .toogle_but {
+  position: absolute;
+  left: 215px;
+  top: 20px;
+}
+
+.toogle_but span {
+  width: 35px;
+  height: 3px;
+  background-color: #1d3557;
+  display: block;
+  margin-top: 4px;
+}
+

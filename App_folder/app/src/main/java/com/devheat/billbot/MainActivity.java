@@ -26,14 +26,9 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new WebAppInterface(this), "Android");
         webView.setWebViewClient(new Callback());
-        webView.loadUrl("file:///android_asset/test.html");
+        webView.loadUrl("file:///android_asset/for_smartphone.html");
 
-        try {
-            PDFcreator.createpdf();
-            Toast.makeText(this, "Pdf Created", Toast.LENGTH_SHORT).show();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
     }
 
 
@@ -51,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Show a toast from the web page
          */
+
+        @JavascriptInterface
+        public void printpdf(){
+            try {
+                PDFcreator.createpdf();
+                Toast.makeText(mContext, "Pdf Created", Toast.LENGTH_SHORT).show();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        }
+
         @JavascriptInterface
         public int showToast(String toast) {
             Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();

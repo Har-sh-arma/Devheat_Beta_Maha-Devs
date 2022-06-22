@@ -1,0 +1,101 @@
+.main_OP {
+  height: 100vh;
+}
+.secondary {
+  background-color: #1d3557;
+  margin-top: 70px;
+  padding: 10px;
+}
+.food_menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+  background-color: #a8dadc;
+  padding: 10px;
+}
+.food_menu div {
+  text-align: center;
+  padding: 10px;
+}
+
+.food_menu img {
+  padding-bottom: 10px;
+}
+
+.tikki_chaat {
+  padding-left: 15px;
+  padding-top: 7px;
+}
+
+.bhel {
+  padding-left: 5px;
+}
+#imvp {
+  padding-bottom: 15px;
+}
+#imns {
+  padding-top: -100px;
+}
+#ns {
+  padding-left: 2px;
+}
+#tkc {
+  padding-top: 5.5px;
+}
+
+.table_cont {
+  margin-top: 100px;
+  margin-right: 0px;
+  padding-bottom: 100%;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #a8dadc;
+}
+th,
+td {
+  color: #f1faee;
+  padding: 2px;
+}
+
+table,
+tr,
+th,
+td {
+  border: 2px solid #f1faee;
+  border-collapse: collapse;
+  text-align: center;
+}
+table {
+  width: 100%;
+}
+th {
+  background-color: #e63946;
+}
+tr {
+  background-color: #1d3557;
+}
+tr:nth-child(odd) {
+  background-color: #457b9d;
+}
+.food_menu span {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1d3557;
+  font-weight: 500;
+}
+
+button {
+  background-color: #CCFF66;
+  padding: 8px 120px;
+  margin-top: 30px;
+  margin-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  color: #1d3557;
+  border-style: none;
+}
+
+button:hover{
+  background-color: #f0cb24;
+}
