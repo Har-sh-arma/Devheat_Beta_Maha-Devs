@@ -1,5 +1,3 @@
-
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,143 +13,165 @@
     <title>Bill_Bot</title>
   </head>
   <body>
-    <div class="main_OP">
-      <!-- markup for the sliding navigation bar -->
-      <nav class="nav_bar">
-        <div class="head_of_nb">
-          <div class="toogle_but">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <!-- markup for the sliding navigation bar -->
+    <nav class="nav_bar">
+      <div class="head_of_nb">
+        <div class="toogle_but">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <ul id="menu_1">
-          <li class="item">Your Account</li>
-          <li class="item">Help</li>
-          <li class="item">Contact us</li>
-        </ul>
-      </nav>
-      <!-- markup for the main display page  -->
-      <!-- markup for the menu -->
-      <div class="secondary">
-        <div class="food_menu">
-          <div>
+      </div>
+      <ul id="menu_1">
+        <li class="item">Your Account</li>
+        <li class="item">Help</li>
+        <li class="item">Contact us</li>
+      </ul>
+    </nav>
+    <!-- markup for the main display page  -->
+    <!-- markup for the menu -->
+    <div class="secondary">
+      <div class="food_menu">
+        <div class="cell">
+          <div class="pic_C">
             <img
               style="height: 80px"
               src="Images_used/front_page/Samosa.png"
               alt="Samosa"
               onclick="add_samosa()"
             />
-            <span id="samosa">Samosa</span>
           </div>
-          <div>
+          <div class="name_C">
+            <span id="samosa">Samosa <br> </span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="pic_C">
             <img
               style="height: 80px"
               src="Images_used/front_page/Pani_puri.png"
               alt="Pani Pani_puri"
               onclick="add_pani_puri()"
-            /><span id="Pani_puri">Pani Puri</span>
+            />
           </div>
-          <div class="tikki_chaat">
+          <div class="name_C">
+            <span id="Pani_puri">Pani Puri <br> </span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="pic_C">
             <img
               id="tkc"
-              style="height: 70px"
+              style="height: 80px"
               src="Images_used/front_page/tikki_chat.png"
               alt="Tikki Chaat"
               onclick="add_tik_cht()"
-            /><span id="tikki"
-              ><br />
-              Tikki Chaat</span
-            >
+            />
           </div>
-          <div class="bhel">
+          <div class="name_C">
+            <span id="tikki"> Tikki<br> Chaat <br> </span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="pic_C">
             <img
-              style="height: 70px"
+              style="height: 80px"
               src="Images_used/front_page/bhel.png"
               alt="Indori bhel"
               onclick="add_indori_bhel()"
             />
-            <span id="Inbh"><br />Indori Bhel</span>
           </div>
-          <div>
+          <div class="name_C">
+            <span id="Inbh">Indori Bhel</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="pic_C">
             <img
               id="imvp"
-              style="height: 70px"
+              style="height: 80px"
               src="Images_used/front_page/vada_paw.png"
               alt="vada Pav"
               onclick="add_vada_pav()"
             />
+          </div>
+          <div class="name_C">
             <span id="vada">Vada Pav</span>
           </div>
-          <div class="npn">
+        </div>
+        <div class="cell">
+          <div class="pic_C">
             <img
               id="imns"
-              style="height: 75px"
+              style="height: 80px"
               src="Images_used/front_page/neembu_soda.png"
               alt=" neembu soda"
               onclick="add_nbs()"
             />
-            <span id="ns">Neembu Soda</span>
+          </div>
+          <div class="name_C">
+            <span id="ns">Neembu <br> Pani</span>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- markup for the Items table -->
-      <div class="table_cont">
-        <table>
-          <tr>
-            <th>Sr no.</th>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-          </tr>
-          <tr>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-          </tr>
-          <tr>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-          </tr>
-          <tr>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-          </tr>
-          <tr>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-          </tr>
-          <tr>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-          </tr>
-          <tr>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-            <td>ufb</td>
-          </tr>
-          <tr>
-            <td colspan="3">ufb</td>
-            <td>ufb</td>
-          </tr>
-        </table>
-        <!-- markup for the print button -->
-        <div class="print">
-          <button id="but" type="button">PRINT</button>
-        </div>
+    <!-- markup for the Items table -->
+    <div class="table_cont">
+      <table>
+        <tr>
+          <th>Sr no.</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td id="one_sr">ufb</td>
+          <td id="one_name">ufb</td>
+          <td id="one_qty">ufb</td>
+          <td id="one_amt">ufb</td>
+        </tr>
+        <tr>
+          <td id="two_sr">ufb</td>
+          <td id="two_name">ufb</td>
+          <td id="two_qty">ufb</td>
+          <td id="two_amt">ufb</td>
+        </tr>
+        <tr>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+        </tr>
+        <tr>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+        </tr>
+        <tr>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+        </tr>
+        <tr>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+          <td>ufb</td>
+        </tr>
+        <tr>
+          <td colspan="3">ufb</td>
+          <td>ufb</td>
+        </tr>
+      </table>
+      <!-- markup for the print button -->
+      <div class="print">
+        <button style="text-align: center" id="but" type="button">PRINT</button>
       </div>
     </div>
+
     <script src="for_smartphone.js"></script>
   </body>
 </html>
