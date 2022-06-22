@@ -3,17 +3,31 @@ package com.devheat.billbot;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class User {
-    public String name;
-    public String address;
-    public int GSTIN;
-    public int invoice_num;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-    public void User(String name, String address, int GSTIN, int invoice_num){
-        this.name = name;
-        this.address = address;
-        this.GSTIN = GSTIN;
-        this.invoice_num = invoice_num;
+public class User {
+
+    public static void AddUserData(String json_string){
+        try {
+            PrintWriter out = new PrintWriter(new FileWriter("file:///android_asset/user.json"));
+            out.write(json_string);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static String LoadUserData(){
+        try {
+            return new String(Files.readAllBytes(Paths.get("file:///android_asset/user.json")));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Error in User.java";
+        }
     }
 
 }

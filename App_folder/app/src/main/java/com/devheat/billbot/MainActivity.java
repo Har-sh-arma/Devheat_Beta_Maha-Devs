@@ -43,9 +43,15 @@ public class MainActivity extends AppCompatActivity {
             mContext = c;
         }
 
-        /**
-         * Show a toast from the web page
-         */
+        @JavascriptInterface
+        public String load_user_data(){
+            return User.LoadUserData();
+        }
+
+        @JavascriptInterface
+        public void add_user_data(String json_string){
+            User.AddUserData(json_string);
+        }
 
         @JavascriptInterface
         public void printpdf(){

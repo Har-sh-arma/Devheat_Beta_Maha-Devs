@@ -7,6 +7,17 @@ function display()
  
 }
 
+var user = {name:"",address:"",GSTIN:0,invoice_num:0};
+
+ function load_data(){
+    user = JSON.parse(Android.load_user_data());
+ }
+
+function add_data(){
+    Android.add_user_data(JSON.stringify(user));
+}
+
+
 
 function add_samosa()
 {
@@ -40,4 +51,5 @@ function add_soda()
 }
 function printPDF(){
     Android.printpdf();
+    user.invoice_num += 1;
 }
