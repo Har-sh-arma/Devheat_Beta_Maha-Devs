@@ -1,14 +1,10 @@
 
 let food =[{amount:0,name:"samosa",price:15,qty:0},{amount:0,name:"pani puri",price:20,qty:0},{amount:0,name:"tikki chaat",price:25,qty:0},{amount:0,name:"indori bhel",price:20,qty:0},{amount:0,name:"vada pav",price:15,qty:0},{amount:0,name:"neembu soda",price:20,qty:0}];
-let serial_no=[];
+let serial_no=[]; //to know which serial row has which items(i.e 0,1.2....5)
 let index=0;
-let serial=[{samosa:0},{panipuri:0},{tikki:0},{bhel:0},{vadapav:0},{soda:0}]
+let serial=[]   //to know which item has which serial row(i.e 1,2,....6)
 let total=0;
-/*function display()
-{
- document.getElementById("show").innerHTML="samosa quantity: " + food[0].qty +"</br>"+ "panipuri quantity: " + food[1].qty + "</br>"+ "tikki quantity: " + food[2].qty + "</br>" + "bhel quantity: " + food[3].qty + "</br>" +"vadapav quantity: " +  food[4].qty + "</br>" + "soda quantity: " + food[5].qty;
- 
-}*/
+
 function display_row(row_no,item)
 {
     document.getElementById((row_no*10)+1).innerHTML=row_no;
@@ -16,135 +12,92 @@ function display_row(row_no,item)
     document.getElementById((row_no*10)+3).innerHTML=food[item].qty;
     document.getElementById((row_no*10)+4).innerHTML=food[item].amount;
 }
+
+function display_empty_row(row_no)
+{
+    document.getElementById((row_no*10)+1).innerHTML="";
+    document.getElementById((row_no*10)+2).innerHTML="";
+    document.getElementById((row_no*10)+3).innerHTML="";
+    document.getElementById((row_no*10)+4).innerHTML="";
+}
+
+function display_delete_button(row_no)
+{
+    
+        const btn = document.createElement("button");
+        btn.innerHTML = "-";
+        btn.id=(row_no*10);
+        document.getElementById((row_no*10)+3).appendChild(btn);
+        document.getElementById(row_no*10).onclick=function hi(){delete_item(serial_no[row_no]);};
+
+   
+}
+
 function display_total()
 {
     total= food[0].amount+food[1].amount+food[2].amount+food[3].amount+food[4].amount+food[5].amount; 
     document.getElementById("total").innerHTML=total;     
 }
 
-
-function add_samosa()
+function add_item(item)
 {
-    if(food[0].qty==0)
+    if(food[item].qty==0)
     {
-        food[0].qty++;
-        food[0].amount=food[0].qty*food[0].price;
+        food[item].qty++;
+        food[item].amount=food[item].qty*food[item].price;
         index++;
-        serial_no[index]=0; //intialized serial_no arry with appropriate index(serial no) as "0"
-        serial.samosa=index; //intialized that samosa item has serial no '1'
-        display_row(serial.samosa,serial_no[serial.samosa]);
+        serial_no[index]=item; //intialized serial_no arry with appropriate index(serial no) as "item"
+        serial[item]=index; //intialized that particular item has serial row no =index
+        display_row(serial[item],item);
         display_total();
-        //create delete button with id =(index*10) 
+        display_delete_button(serial[item]);
+        
     }
     else
     {
-        food[0].qty++;
-        food[0].amount=food[0].qty*food[0].price;
-        display_row(serial.samosa,serial_no[serial.samosa]);   
-    }   display_total();
-}
-function add_pani_puri()
-{
-    if(food[1].qty==0)
-    {
-        food[1].qty++;
-        food[1].amount=food[1].qty*food[1].price;
-        index++;
-        serial_no[index]=1; //intialized serial_no arry with appropriate index(serial no) as "0"
-        serial.panipuri=index; //intialized that samosa item has serial no '1'
-        display_row(serial.panipuri,serial_no[serial.panipuri]); 
-        display_total();  
-        //create delete button with id =(index*10) 
-    }
-    else
-    {
-        food[1].qty++;
-        food[1].amount=food[1].qty*food[1].price;
-        display_row(serial.panipuri,serial_no[serial.panipuri]); 
-        display_total();  
+        food[item].qty++;
+        food[item].amount=food[item].qty*food[item].price;
+        display_row(serial[item],item);   
+        display_total();
+        display_delete_button(serial[item]);
+      
     }
 }
-function add_tik_cht()
+function delete_item(item)
 {
-    if(food[2].qty==0)
+    if(food[item].qty>1)
     {
-        food[2].qty++;
-        food[2].amount=food[2].qty*food[2].price;
-        index++;
-        serial_no[index]=2; //intialized serial_no arry with appropriate index(serial no) as "0"
-        serial.tikki=index; //intialized that samosa item has serial no '1'
-        display_row(serial.tikki,serial_no[serial.tikki]);   
+        food[item].qty--;
+        food[item].amount=food[item].qty*food[item].price;
+        display_row(serial[item],item);
+        display_delete_button(serial[item]);
         display_total();
-        //create delete button with id =(index*10) 
     }
     else
     {
-        food[2].qty++;
-        food[2].amount=food[2].qty*food[2].price;
-        display_row(serial.tikki,serial_no[serial.tikki]);   
-        display_total();
-    }
-}
-function add_indori_bhel()
-{
-    if(food[3].qty==0)
-    {
-        food[3].qty++;
-        food[3].amount=food[3].qty*food[3].price;
-        index++;
-        serial_no[index]=3; //intialized serial_no arry with appropriate index(serial no) as "0"
-        serial.bhel=index; //intialized that samosa item has serial no '1'
-        display_row(serial.bhel,serial_no[serial.bhel]);   
-        display_total();
-        //create delete button with id =(index*10) 
-    }
-    else
-    {
-        food[3].qty++;
-        food[3].amount=food[3].qty*food[3].price;
-        display_row(serial.bhel,serial_no[serial.bhel]);   
-        display_total();
-    }
-}
-function add_vada_pav()
-{
-    if(food[4].qty==0)
-    {
-        food[4].qty++;
-        food[4].amount=food[4].qty*food[4].price;
-        index++;
-        serial_no[index]=4; //intialized serial_no arry with appropriate index(serial no) as "0"
-        serial.vadapav=index; //intialized that samosa item has serial no '1'
-        display_row(serial.vadapav,serial_no[serial.vadapav]);   
-        display_total();
-        //create delete button with id =(index*10) 
-    }
-    else
-    {
-        food[4].qty++;
-        food[4].amount=food[4].qty*food[4].price;
-        display_row(serial.vadapav,serial_no[serial.vadapav]);  
-        display_total(); 
-    } 
-} 
-function add_nbs()
-{
-    if(food[5].qty==0)
-    {
-        food[5].qty++;
-        food[5].amount=food[5].qty*food[5].price;
-        index++;
-        serial_no[index]=5; //intialized serial_no arry with appropriate index(serial no) as "0"
-        serial.soda=index; //intialized that samosa item has serial no '1'
-        display_row(serial.soda,serial_no[serial.soda]);  
-        display_total(); 
-        //create delete button with id =(index*10) 
-    }
-    else
-    {
-        food[5].qty++;
-        food[5].amount=food[5].qty*food[5].price;
-        display_row(serial.soda,serial_no[serial.soda]);  
-        display_total(); 
+        food[item].amount=0;
+        if(serial[item]==index)
+        {
+            index--;
+            food[item].qty--;
+            display_empty_row(serial[item])
+            serial[item]=item;
+            display_total();
+        }
+        else if(serial[item]<index)
+        {
+            food[item].qty--;
+            for(let i=serial[item];i<index;i++)
+            {
+                serial_no[i]=serial_no[i+1];
+                serial[serial_no[i]]--;
+                display_row(i,serial_no[i]);
+                display_delete_button(i);
+            }
+            display_total();
+            display_empty_row(index);
+            index--;  
+            
+        }
     }
 }
