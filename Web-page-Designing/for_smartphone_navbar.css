@@ -9,7 +9,7 @@ body {
 .nav_bar {
   position: absolute;
   width: 200px;
-  height: 100%;
+  height: 1065px;
   background-color: #1d3557;
   left: -200px;
   margin-top: -70px;
@@ -28,6 +28,12 @@ body {
 
 }
 
+.nav_bar li:hover{
+    font-size: 21px;
+    color: #a8dadc;
+    background-color: #214e8e;
+}
+
 
 .nav_bar .toogle_but {
   position: absolute;
@@ -42,3 +48,4 @@ body {
   display: block;
   margin-top: 4px;
 }
+
