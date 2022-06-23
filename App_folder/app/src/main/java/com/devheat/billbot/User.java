@@ -22,7 +22,13 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class User {
+public class User{
+    public static String name;
+    public static String address;
+    public static String phone;
+    public static String email;
+    public static String GSTIN;
+    public static String invoice_num;
 
     public static String AddUserData(String json_string, Context context){
             try {

@@ -117,6 +117,11 @@ function delete_item(item) {
   }
 }
 
+function printpdf(a,b,c,d,e,f){
+  user.invoice_num ++;
+  add_data();
+  Android.printpdf(user.name, user.address, user.phone, user.email, user.GSTIN, user.invoice_num.toString());
+}
 
 
 window.onload = function(){

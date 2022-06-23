@@ -13,6 +13,7 @@ import org.json.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,6 +53,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
+        public Integer check(){
+            File file = new File("user.json");
+            if(file.exists()){
+                return 1;
+            }
+            return 0;
+        }
+
+
+        @JavascriptInterface
         public String load_user_data(){
             return User.LoadUserData(mContext);
         }
@@ -62,7 +73,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void printpdf(){
+        public void printpdf(String name, String address, String phone, String email, String GSTIN, String invoice_num){
+            User.name = name;
+            User.address = address;
+            User.phone = phone;
+            User.email = email;
+            User.GSTIN = GSTIN;
+            User.invoice_num = invoice_num;
+
+            System.out.println(User.invoice_num);
+
             try {
                 PDFcreator.createpdf();
                 Toast.makeText(mContext, "Pdf Created", Toast.LENGTH_SHORT).show();
