@@ -1,3 +1,12 @@
+
+var user = {name:"Default",
+            address:"Flat/ Locality/Area",
+            phone:"+91 XXXXX XXXXX",
+            email:"example@example.com",
+            GSTIN:"22 AAAAA0000A 1Z5",
+            invoice_num:0};
+
+
 let food = [
   { amount: 0, name: "Samosa", price: 15, qty: 0 },
   { amount: 0, name: "Pani Puri", price: 20, qty: 0 },
@@ -10,6 +19,20 @@ let serial_no = []; //to know which serial row has which items(i.e 0,1.2....5)
 let index = 0;
 let serial = []; //to know which item has which serial row(i.e 1,2,....6)
 let total = 0;
+
+
+function load_data(){
+    user = JSON.parse(Android.load_user_data());
+}
+
+function add_data(){
+    return Android.add_user_data(JSON.stringify(user));
+}
+function show_nb() {
+  let x = document.getElementsByClassName('nav_bar');
+  x[0].classList.toggle('active');
+}
+
 
 function display_row(row_no, item) {
   document.getElementById(row_no * 10 + 1).innerHTML = row_no;
@@ -93,20 +116,9 @@ function delete_item(item) {
     }
   }
 }
-//Adding user data
-
-var user = {name:"Harsh",address:"Mumbai",GSTIN:0,invoice_num:0};
-
-function load_data(){
-    user = JSON.parse(Android.load_user_data());
-}
-
-function add_data(){
-    return Android.add_user_data(JSON.stringify(user));
-}
 
 
 
 window.onload = function(){
-  console.log(add_data());
+    load_data();
 }
