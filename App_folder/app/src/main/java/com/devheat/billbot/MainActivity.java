@@ -2,7 +2,9 @@ package com.devheat.billbot;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -27,7 +29,13 @@ public class MainActivity extends AppCompatActivity {
         webView.addJavascriptInterface(new WebAppInterface(this), "Android");
         webView.setWebViewClient(new Callback());
         webView.loadUrl("file:///android_asset/for_smartphone.html");
-
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                android.util.Log.d("WebView", consoleMessage.message());
+                return true;
+            }
+        });
 
     }
 
@@ -45,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
         @JavascriptInterface
         public String load_user_data(){
-            return User.LoadUserData();
+            return User.LoadUserData(mContext);
         }
 
         @JavascriptInterface
-        public void add_user_data(String json_string){
-            User.AddUserData(json_string);
+        public String add_user_data(String json_string){
+            return User.AddUserData(json_string,mContext);
         }
 
         @JavascriptInterface

@@ -1,55 +1,112 @@
+let food = [
+  { amount: 0, name: "Samosa", price: 15, qty: 0 },
+  { amount: 0, name: "Pani Puri", price: 20, qty: 0 },
+  { amount: 0, name: "Tikki Chaat", price: 25, qty: 0 },
+  { amount: 0, name: "Indori Bhel", price: 20, qty: 0 },
+  { amount: 0, name: "Vada Pav", price: 15, qty: 0 },
+  { amount: 0, name: "Neembu Pani", price: 20, qty: 0 },
+];
+let serial_no = []; //to know which serial row has which items(i.e 0,1.2....5)
+let index = 0;
+let serial = []; //to know which item has which serial row(i.e 1,2,....6)
+let total = 0;
 
-let food =[{samosa_price:15,samosa_qty:0},{panipuri_price:20,panipuri_qty:0},{tikki_price:25,tikki_qty:0},{bhel_price:20,bhel_qty:0},{vadapav_price:15,vadapav_qty:0},{soda_price:20,soda_qty:0}];
- 
-function display()
-{
- document.getElementById("show").innerHTML="samosa quantity: " + food[0].samosa_qty +"</br>"+ "panipuri quantity: " + food[1].panipuri_qty + "</br>"+ "tikki quantity: " + food[2].tikki_qty + "</br>" + "bhel quantity: " + food[3].bhel_qty + "</br>" +"vadapav quantity: " +  food[4].vadapav_qty + "</br>" + "soda quantity: " + food[5].soda_qty;
- 
+function display_row(row_no, item) {
+  document.getElementById(row_no * 10 + 1).innerHTML = row_no;
+  document.getElementById(row_no * 10 + 2).innerHTML = food[item].name;
+  document.getElementById(row_no * 10 + 3).innerHTML = food[item].qty;
+  document.getElementById(row_no * 10 + 4).innerHTML = food[item].amount;
 }
 
-var user = {name:"",address:"",GSTIN:0,invoice_num:0};
+function display_empty_row(row_no) {
+  document.getElementById(row_no * 10 + 1).innerHTML = "";
+  document.getElementById(row_no * 10 + 2).innerHTML = "";
+  document.getElementById(row_no * 10 + 3).innerHTML = "";
+  document.getElementById(row_no * 10 + 4).innerHTML = "";
+}
 
- function load_data(){
+function display_delete_button(row_no) {
+  const btn = document.createElement("button");
+  btn.innerHTML = "REMOVE";
+  btn.id = row_no * 10;
+  document.getElementById(row_no * 10 + 3).appendChild(btn);
+  document.getElementById(row_no * 10).onclick = function hi() {
+    delete_item(serial_no[row_no]);
+  };
+}
+
+function display_total() {
+  total =
+    food[0].amount +
+    food[1].amount +
+    food[2].amount +
+    food[3].amount +
+    food[4].amount +
+    food[5].amount;
+  document.getElementById("total").innerHTML = total;
+}
+
+function add_item(item) {
+  if (food[item].qty == 0) {
+    food[item].qty++;
+    food[item].amount = food[item].qty * food[item].price;
+    index++;
+    serial_no[index] = item; //intialized serial_no arry with appropriate index(serial no) as "item"
+    serial[item] = index; //intialized that particular item has serial row no =index
+    display_row(serial[item], item);
+    display_total();
+    display_delete_button(serial[item]);
+  } else {
+    food[item].qty++;
+    food[item].amount = food[item].qty * food[item].price;
+    display_row(serial[item], item);
+    display_total();
+    display_delete_button(serial[item]);
+  }
+}
+function delete_item(item) {
+  if (food[item].qty > 1) {
+    food[item].qty--;
+    food[item].amount = food[item].qty * food[item].price;
+    display_row(serial[item], item);
+    display_delete_button(serial[item]);
+    display_total();
+  } else {
+    food[item].amount = 0;
+    if (serial[item] == index) {
+      index--;
+      food[item].qty--;
+      display_empty_row(serial[item]);
+      serial[item] = item;
+      display_total();
+    } else if (serial[item] < index) {
+      food[item].qty--;
+      for (let i = serial[item]; i < index; i++) {
+        serial_no[i] = serial_no[i + 1];
+        serial[serial_no[i]]--;
+        display_row(i, serial_no[i]);
+        display_delete_button(i);
+      }
+      display_total();
+      display_empty_row(index);
+      index--;
+    }
+  }
+}
+//Adding user data
+
+var user = {name:"Harsh",address:"Mumbai",GSTIN:0,invoice_num:0};
+
+function load_data(){
     user = JSON.parse(Android.load_user_data());
- }
+}
 
 function add_data(){
-    Android.add_user_data(JSON.stringify(user));
+    return Android.add_user_data(JSON.stringify(user));
 }
 
 
 
-function add_samosa()
-{
-    food[0].samosa_qty++;
-     display();
-}
-function add_pani_puri()
-{
-    food[1].panipuri_qty++; 
-    display();
-}
-function add_tik_cht()
-{
-    food[2].tikki_qty++;
-    display();
-}
-function add_indori_bhel()
-{
-    food[3].bhel_qty++;
-    display();
-}
-function add_vada_pav()
-{
-    food[4].vadapav_qty++;
-    display();
-} 
-function add_soda()
-{
-    food[5].soda_qty++;
-    display();
-}
-function printPDF(){
-    Android.printpdf();
-    user.invoice_num += 1;
+window.onload = function(){
+  console.log(add_data());
 }
