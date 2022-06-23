@@ -28,26 +28,6 @@
   max-width: 100%;
 }
 
-/* .tikki_chaat {
-  padding-left: 15px;
-  padding-top: 7px;
-}
-
-.bhel {
-  padding-left: 5px;
-}
-#imvp {
-  padding-bottom: 15px;
-}
-#imns {
-  padding-top: -100px;
-}
-#ns {
-  padding-left: 2px;
-}
-#tkc {
-  padding-top: 5.5px;
-} */
 
 .table_cont {
   margin-top: 100px;
@@ -120,7 +100,7 @@ tr:nth-child(odd) {
   color: #f4d8ae;
   font-size: 10px;
   border-style: none;
-  width: 30%;
+  width: 50px;
   height: 15px;
   border-radius: 30px;
   vertical-align: middle;
