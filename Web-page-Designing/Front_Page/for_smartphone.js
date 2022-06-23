@@ -1,3 +1,8 @@
+function show_nb() {
+  let x = document.getElementsByClassName('nav_bar');
+  x[0].classList.toggle('active');
+}
+
 let food = [
   { amount: 0, name: "Samosa", price: 15, qty: 0 },
   { amount: 0, name: "Pani Puri", price: 20, qty: 0 },

@@ -14,18 +14,16 @@
   </head>
   <body>
     <!-- markup for the sliding navigation bar -->
-    <nav class="nav_bar">
-      <div class="head_of_nb">
-        <div class="toogle_but">
+    <nav class="nav_bar" onclick="show_nb()" onblur="hide_nb()">
+        <div class="toogle_but" onblur="hide_nb()">
           <span></span>
           <span></span>
           <span></span>
         </div>
-      </div>
       <ul id="menu_1">
-        <li class="item">Your Account</li>
-        <li class="item">Help</li>
-        <li class="item">Contact us</li>
+        <li class="item"><a href="../Your_Account/yourAccount.html"> Your Account </a></li>
+        <li class="item"> <a href="#"> Help </a> </li>
+        <li class="item"> <a href="#"> Contact us </a></li>
       </ul>
     </nav>
     <!-- markup for the main display page  -->
@@ -42,7 +40,7 @@
             />
           </div>
           <div class="name_C">
-            <span id="samosa">Samosa <br> </span>
+            <span id="samosa">Samosa <br /> </span>
           </div>
         </div>
         <div class="cell">
@@ -55,7 +53,7 @@
             />
           </div>
           <div class="name_C">
-            <span id="Pani_puri">Pani Puri <br> </span>
+            <span id="Pani_puri">Pani Puri <br /> </span>
           </div>
         </div>
         <div class="cell">
@@ -69,7 +67,10 @@
             />
           </div>
           <div class="name_C">
-            <span id="tikki"> Tikki<br> Chaat <br> </span>
+            <span id="tikki">
+              Tikki<br />
+              Chaat <br />
+            </span>
           </div>
         </div>
         <div class="cell">
@@ -110,7 +111,10 @@
             />
           </div>
           <div class="name_C">
-            <span id="ns">Neembu <br> Pani</span>
+            <span id="ns"
+              >Neembu <br />
+              Pani</span
+            >
           </div>
         </div>
       </div>
@@ -120,9 +124,9 @@
     <div class="table_cont">
       <table>
         <tr>
-          <th style="width: 15% ;">Sr no.</th>
-          <th style="width: 30% ;">Item</th>
-          <th style="width: 25% ;">Quantity</th>
+          <th style="width: 15%">Sr no.</th>
+          <th style="width: 30%">Item</th>
+          <th style="width: 25%">Quantity</th>
           <th>Amount</th>
         </tr>
         <tr>
@@ -168,7 +172,7 @@
       </table>
       <!-- markup for the print button -->
       <div class="print">
-        <button style="text-align: center" id="but" type="button">PRINT</button>
+        <button style="text-align: center" id="but" type="button" onclick="clear_table()">PRINT</button>
       </div>
     </div>
 
