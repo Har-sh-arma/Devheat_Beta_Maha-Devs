@@ -3,39 +3,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="yourAccount.css" />
-    <title>Document</title>
+      <link rel="stylesheet" href="yourAccount.css" />
+
+      <title>Document</title>
   </head>
   <body>
+  <script type="text/javascript" src = "yourAccount.js"></script>
+
     <div  id="heading">
         <h1> Your Account </h1>
     </div>
         <div class="cont" >
-            <label for="bussname">: Business Name :</label>
+            <label for="name">: Business Name :</label>
             <br />
-            <input type="text" id="bussname" />
+            <input type="text" id="name" required />
                 <br>
                 <br>
             <label for="GSTIN">: GSTIN :</label>
             <br />
-            <input type="text" id="GSTIN" />
+            <input type="text" id="GSTIN" maxlength="15" required/>
                 <br>
                 <br>
-            <label for="contact_det">: Contact Details :</label>
+            <label for="invoice_num">: Last Invoice Number :</label>
             <br />
+            <input type="text" id="invoice_num" pattern="\d*" required/>
+                <br>
+
             <br />
             <label  for="email">: Email :</label>
             <br />
-            <input  type="text" id="email" />
+            <input  type="email" id="email" required/>
             <br />
-            <label  for="phno">: Mobile Number :</label>
+            <label  for="phone">: Mobile Number :</label>
             <br />
-            <input  type="text" id="bussname" />
+            <input  type="tel" id="phone" pattern="\d*" maxlength="10" required/>
                 <br>
                 <br>
-            <label for="bussadd">: Business Address :</label>
+            <label for="address">: Business Address :</label>
             <br />
-            <input type="text" id="bussadd" />
+            <input type="text" id="address" required/>
+            <input type="button" onclick="validate();" value="Submit" id="submit_but">
+
         </div>
   </body>
 </html>
