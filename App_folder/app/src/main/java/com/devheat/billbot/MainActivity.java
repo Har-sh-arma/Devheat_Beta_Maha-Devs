@@ -89,8 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
         @JavascriptInterface
         public void printpdf(){
-
-
             try {
                 PDFcreator.createpdf();
                 Toast.makeText(mContext, "Pdf Created", Toast.LENGTH_SHORT).show();
@@ -100,9 +98,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public int showToast(String toast) {
+        public void showToast(String toast) {
             Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
-            return 2;
         }
     }
 

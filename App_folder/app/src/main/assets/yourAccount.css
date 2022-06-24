@@ -32,4 +32,11 @@ input{
     border-radius: 5px;
     border-width: 2px;
     border-color: #301008;
-} 
+}
+#submit_but{
+    margin-top: 30px;
+    padding: 5px 15px;
+    border-color: #301008;
+    background-color: #fff;
+    border-radius: 30px;
+}

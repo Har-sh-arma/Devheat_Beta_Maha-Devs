@@ -9,6 +9,9 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.element.Text;
+import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.VerticalAlignment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,22 +35,22 @@ public class PDFcreator {
 
         Table table = new Table(column_width);
 
-        table.addCell(new Cell(1,12).add(new Paragraph("Tax invoice")));
+        table.addCell(new Cell(1,12).add(new Paragraph(new Text("Tax Invoice").setBold()).setTextAlignment(TextAlignment.CENTER)));
 
-        table.addCell(new Cell(1,12).add(new Paragraph(User.name)));
+        table.addCell(new Cell(1,12).add(new Paragraph(new Text(User.name).setBold().setFontSize(32)).setTextAlignment(TextAlignment.CENTER)));
 
-        table.addCell(new Cell(1,12).add(new Paragraph(User.address)));
+        table.addCell(new Cell(1,12).add(new Paragraph(new Text(User.address).setFontSize(20)).setTextAlignment(TextAlignment.CENTER)));
 
-        table.addCell(new Cell(1,6).add(new Paragraph("Call at :"+User.phone)));
+        table.addCell(new Cell(1,6).add(new Paragraph("Call at :"+User.phone).setTextAlignment(TextAlignment.RIGHT)));
         table.addCell(new Cell(1,6).add(new Paragraph("Mail at :"+User.email)));
 
-        table.addCell(new Cell(2,4).add(new Paragraph("GSTIN No."+User.GSTIN)));
-        table.addCell(new Cell(2,4).add(new Paragraph("HSN Code : 996331")));
+        table.addCell(new Cell(2,4).add(new Paragraph("GSTIN No."+User.GSTIN)).setVerticalAlignment(VerticalAlignment.MIDDLE));
+        table.addCell(new Cell(2,3).add(new Paragraph("HSN Code : 996331")).setVerticalAlignment(VerticalAlignment.MIDDLE));
         table.addCell(new Cell(1,2).add(new Paragraph("Invoice no.")));
-        table.addCell(new Cell(1,2).add(new Paragraph("Dated")));
+        table.addCell(new Cell(1,3).add(new Paragraph("Dated")));
 
         table.addCell(new Cell(1,2).add(new Paragraph("INVN"+User.invoice_num)));
-        table.addCell(new Cell(1,2).add(new Paragraph(Bill.date)));
+        table.addCell(new Cell(1,3).add(new Paragraph(new Text(Bill.date).setFontSize(11))).setVerticalAlignment(VerticalAlignment.MIDDLE));
 
         table.addCell(new Cell(1,1).add(new Paragraph("Sr. no.")));
         table.addCell(new Cell(1,4).add(new Paragraph("Item Name")));
@@ -70,12 +73,12 @@ public class PDFcreator {
 
         double tax = Integer.parseInt(Bill.totol_amount)*0.05;
 
-        table.addCell(new Cell(1,10).add(new Paragraph("GST amount")));
+        table.addCell(new Cell(1,10).add(new Paragraph("GST @5% amount")));
         table.addCell(new Cell(1,2).add(new Paragraph(Double.toString(tax))));
 
         double amount_payable = Integer.parseInt(Bill.totol_amount) +tax;
 
-        table.addCell(new Cell(1,10).add(new Paragraph("AMOUNT PAYABLE")));
+        table.addCell(new Cell(1,10).add(new Paragraph(new Text("AMOUNT PAYABLE").setBold())));
         table.addCell(new Cell(1,2).add(new Paragraph(Double.toString(amount_payable))));
 
 

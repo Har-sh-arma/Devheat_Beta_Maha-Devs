@@ -24,6 +24,8 @@ let item_to_row = []; //to save info about which item has which row
 
 let count = 0;        //to keep track of the total row nos
 let total_amount = 0; //saves the total amount
+let gst_amount = 0;
+let grand_total = 0;
 
 function load_data(){
     user = JSON.parse(Android.load_user_data());
@@ -68,7 +70,11 @@ function display_total_amount() {
     food[3].amount +
     food[4].amount +
     food[5].amount;
+  gst_amount=0.05*total_amount;
+  grand_total=(total_amount + gst_amount);
   document.getElementById("total").innerHTML = total_amount;
+  document.getElementById("gst").innerHTML = gst_amount;
+  document.getElementById("total_gst").innerHTML = grand_total;
 }
 
 function add_item(item) {
@@ -132,6 +138,8 @@ function clear_table(){
     display_empty_row(i);
   }
   document.getElementById("total").innerHTML="";
+  document.getElementById("gst").innerHTML="";
+  document.getElementById("total_gst").innerHTML="";
 }
 
 var index = 0;
@@ -165,6 +173,8 @@ function printpdf(){
   count = 0;
   total_amount = 0;
   index= 0;
+  gst_amount = 0;
+  grand_total = 0;
 }
 
 
