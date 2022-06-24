@@ -146,6 +146,7 @@ tr:nth-child(odd) {
 }
 
 .cont h2 {
+  color : #301008;
   margin-bottom: 15px;
   text-align: center;
 }
