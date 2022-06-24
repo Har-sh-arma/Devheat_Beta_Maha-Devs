@@ -30,6 +30,7 @@ public class User{
     public static String GSTIN;
     public static String invoice_num;
 
+
     public static String AddUserData(String json_string, Context context){
             try {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("user.json", Context.MODE_PRIVATE));
@@ -42,9 +43,6 @@ public class User{
                 return "failed";
 
         }
-
-
-
     }
 
     public static String LoadUserData(Context context){

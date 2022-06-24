@@ -53,14 +53,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public Integer check(){
-            File file = new File("user.json");
-            if(file.exists()){
-                return 1;
-            }
-            return 0;
-        }
+        public void receive_item(String index, String name, String price, String qty, String amount){
+            int i = Integer.parseInt(index);
 
+            Bill.data[i][0] = name;
+            Bill.data[i][1] = price;
+            Bill.data[i][2] = qty;
+            Bill.data[i][3] = amount;
+
+        }
 
         @JavascriptInterface
         public String load_user_data(){
@@ -73,15 +74,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void printpdf(String name, String address, String phone, String email, String GSTIN, String invoice_num){
+        public void add_bill_info(String name, String address, String phone, String email, String GSTIN, String invoice_num,String date ,String count){
             User.name = name;
             User.address = address;
             User.phone = phone;
             User.email = email;
             User.GSTIN = GSTIN;
             User.invoice_num = invoice_num;
+            Bill.date = date;
+            Bill.count = Integer.parseInt(count);
+            Bill.data = new String[Bill.count][4];
+        }
 
-            System.out.println(User.invoice_num);
+        @JavascriptInterface
+        public void printpdf(){
+
 
             try {
                 PDFcreator.createpdf();
@@ -89,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-
         }
 
         @JavascriptInterface
@@ -98,12 +104,6 @@ public class MainActivity extends AppCompatActivity {
             return 2;
         }
     }
-
-
-
-
-
-
 
     private class Callback extends WebViewClient{
         @Override
