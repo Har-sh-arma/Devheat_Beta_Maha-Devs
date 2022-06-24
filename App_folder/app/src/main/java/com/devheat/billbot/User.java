@@ -22,6 +22,9 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * The class that stores data to be stored locally
+ */
 public class User{
     public static String name;
     public static String address;
@@ -30,7 +33,9 @@ public class User{
     public static String GSTIN;
     public static String invoice_num;
 
-
+    /**
+     * Opens file writes to it then closes it
+     */
     public static String AddUserData(String json_string, Context context){
             try {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("user.json", Context.MODE_PRIVATE));
@@ -45,6 +50,9 @@ public class User{
         }
     }
 
+    /**
+     * Opens file reads it to a buffer and returns the buffer as a string
+     */
     public static String LoadUserData(Context context){
         String ret = "";
 

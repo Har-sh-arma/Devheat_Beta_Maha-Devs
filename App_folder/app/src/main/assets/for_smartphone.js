@@ -27,13 +27,13 @@ let total_amount = 0; //saves the total amount
 let gst_amount = 0;
 let grand_total = 0;
 
-function load_data(){
+function load_data(){                                    //Loads data from the locally stored JSON file
     user = JSON.parse(Android.load_user_data());
 }
-function add_data(){
+function add_data(){                                    //Adds data to the locally stored JSON file
     return Android.add_user_data(JSON.stringify(user));
 }
-function show_nb() {
+function show_nb() {                                    //Shows the navigation bar
   let x = document.getElementsByClassName('nav_bar');
   x[0].classList.toggle('active');
 }
@@ -140,19 +140,31 @@ function clear_table(){
   document.getElementById("total").innerHTML="";
   document.getElementById("gst").innerHTML="";
   document.getElementById("total_gst").innerHTML="";
+  document.getElementById("split").innerHTML="1";
 }
 
-var index = 0;
+var index = 0;                  //Keeps track of how many elements are sent and also guides the 2d array in JAVA
 function send_item(item){
   Android.receive_item(index.toString(),item.name, item.price.toString(), item.qty.toString(), item.amount.toString());
   index++;
+}     //Sends item attributes to JAVA
+var split = 1;
+
+function change(a){              //Changes the number of people among which the bill has to be split
+  if(a == '+'){
+    split++;}
+  else if (split>1){
+    split--;
+  }
+  document.getElementById("split").innerHTML = split;
 }
 
-function printpdf(){
+function printpdf(){              //Calls the Print function and resets data to default state
+  if(total_amount>0){
   user.invoice_num ++;
   add_data();
   date = new Date();
-  Android.add_bill_info(user.name, user.address, user.phone, user.email, user.GSTIN, user.invoice_num.toString(),date.toDateString(),count.toString(),total_amount.toString());
+  Android.add_bill_info(user.name, user.address, user.phone, user.email, user.GSTIN, user.invoice_num.toString(),date.toDateString(),count.toString(),total_amount.toString(),split.toString());
   for(const i in food){
     if(food[i].qty != 0){
       send_item(food[i]);
@@ -175,6 +187,10 @@ function printpdf(){
   index= 0;
   gst_amount = 0;
   grand_total = 0;
+  split = 1;}
+  else{
+    Android.showToast("Add Items");
+  }
 }
 
 

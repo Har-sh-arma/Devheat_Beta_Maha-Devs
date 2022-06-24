@@ -1,8 +1,13 @@
 package com.devheat.billbot;
 
+import android.graphics.fonts.FontFamily;
 import android.os.Environment;
 import android.widget.Toast;
 
+import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -23,17 +28,19 @@ public class PDFcreator {
 
     public static void createpdf()throws FileNotFoundException {
 
-        String pdfpath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+        String pdfpath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();         //Setting the path for the pdf
         File file = new File(pdfpath,User.invoice_num+".pdf");
         OutputStream outputStream = new FileOutputStream(file);
 
-        PdfWriter writer = new PdfWriter(file);
+        PdfWriter writer = new PdfWriter(file);                                                                             //Creating a writer object
         PdfDocument pdfDocument = new PdfDocument(writer);
         Document document = new Document(pdfDocument);
 
-        float column_width[] = {40f,40f,40f,40f,40f,40f,40f,40f,40f,40f,40f,40f};
 
-        Table table = new Table(column_width);
+        float column_width[] = {40f,40f,40f,40f,40f,40f,40f,40f,40f,40f,40f,40f};                                            //adding 12 columns with same widths
+
+        Table table = new Table(column_width);                                                                               //creating table
+
 
         table.addCell(new Cell(1,12).add(new Paragraph(new Text("Tax Invoice").setBold()).setTextAlignment(TextAlignment.CENTER)));
 
@@ -54,10 +61,10 @@ public class PDFcreator {
 
         table.addCell(new Cell(1,1).add(new Paragraph("Sr. no.")));
         table.addCell(new Cell(1,4).add(new Paragraph("Item Name")));
-        table.addCell(new Cell(1,2).add(new Paragraph("Price")));
+        table.addCell(new Cell(1,2).add(new Paragraph("Price (Rs)")));
         table.addCell(new Cell(1,1).add(new Paragraph("Qty")));
         table.addCell(new Cell(1,2).add(new Paragraph("Units")));
-        table.addCell(new Cell(1,2).add(new Paragraph("Amount")));
+        table.addCell(new Cell(1,2).add(new Paragraph("Amount (Rs)")));
 
         for(int i = 0; i < Bill.count; i++){
             table.addCell(new Cell(1,1).add(new Paragraph(Integer.toString(i+1))));
@@ -81,12 +88,14 @@ public class PDFcreator {
         table.addCell(new Cell(1,10).add(new Paragraph(new Text("AMOUNT PAYABLE").setBold())));
         table.addCell(new Cell(1,2).add(new Paragraph(Double.toString(amount_payable))));
 
-
-
-
-
         document.add(table);
-        document.close();
+        int a = Integer.parseInt(Bill.split);
+        if(a>1){
+            Paragraph p = new Paragraph(new Text("After the split Each person is due Rs"+Double.toString(amount_payable/a)));           //Adding split statement if necessary
+            document.add(p);
+        }
+
+        document.close();                                                                                                       //closing the file
 
     }
 }

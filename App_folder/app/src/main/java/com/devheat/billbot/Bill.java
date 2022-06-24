@@ -20,6 +20,7 @@ public class Bill {
     public static Integer count = 0;
     public static String date;
     public static String totol_amount;
+    public static String split;
     public static String[][] data;
 
     }

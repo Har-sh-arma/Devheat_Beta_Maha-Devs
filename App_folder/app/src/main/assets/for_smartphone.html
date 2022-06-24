@@ -178,9 +178,23 @@
       <td id="total_gst"></td>
     </tr>
   </table>
+  <!-- markup for the bill split -->
+  <div class="cont">
+  <h2>Split among people ? </h2>
+    <div class="dec_but" id = "-" onclick = "change('-')">-</div>
+    <div class="inc_but" id = "+" onclick = "change('+')">+</div>
+    <div class="display" id = "split">1</div>
+  </div>
   <!-- markup for the print button -->
   <div class="print">
-    <button style="text-align: center" id="but" type="button" onclick="printpdf()">PRINT</button>
+    <button
+      style="text-align: center"
+      id="but"
+      type="button"
+      onclick="printpdf()"
+    >
+      PRINT
+    </button>
   </div>
 </div>
 
