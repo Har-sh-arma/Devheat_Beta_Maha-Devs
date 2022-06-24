@@ -106,3 +106,46 @@ tr:nth-child(odd) {
   vertical-align: middle;
   margin-left: 20%;
  }
+
+ .cont{
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+ .display{
+  background-color: #f58278 ;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 9%;
+  padding-bottom: 9%; 
+  margin-left: 37%;
+  margin-right: 37%;
+  font-size: 25px;
+}
+
+.dec_but{
+  float: left;
+  margin-top: 5%;
+  background-color: #f3b1ab;
+  border-radius: 50%;
+  padding-left: 6%;
+  padding-right: 6%;
+  font-size: 50px;
+  padding-top: -50px;
+}
+.inc_but{
+  float: right;
+  margin-top: 5%;
+  background-color: #f3b1ab;
+  border-radius: 50%;
+  font-size: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.cont h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
