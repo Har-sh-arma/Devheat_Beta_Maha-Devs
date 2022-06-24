@@ -144,15 +144,27 @@ function printpdf(){
   user.invoice_num ++;
   add_data();
   date = new Date();
-  Android.add_bill_info(user.name, user.address, user.phone, user.email, user.GSTIN, user.invoice_num.toString(),date.toDateString(),count.toString());
+  Android.add_bill_info(user.name, user.address, user.phone, user.email, user.GSTIN, user.invoice_num.toString(),date.toDateString(),count.toString(),total_amount.toString());
   for(const i in food){
     if(food[i].qty != 0){
       send_item(food[i]);
     }
   }
   Android.printpdf();
-  
-
+  clear_table();
+  food = [
+  {  name: "Samosa", price: 15, qty: 0,amount:0 },      //food[0] refers to samosa object
+  {  name: "Pani Puri", price: 20, qty: 0,amount:0 },   //food[1] refers to pani puri object
+  {  name: "Tikki Chaat", price: 25, qty: 0,amount:0 }, //food[2] refers to tikki chaat object
+  {  name: "Indori Bhel", price: 20, qty: 0,amount:0 }, //food[3] refers to Indori bhel object
+  {  name: "Vada Pav", price: 15, qty: 0,amount:0 },    //food[4] refers to Vada pav object
+  {  name: "Neembu Pani", price: 20, qty: 0,amount:0 }, //food[5] refers to Neembu pani object
+  ];
+  row_to_item = [];
+  item_to_row = [];
+  count = 0;
+  total_amount = 0;
+  index= 0;
 }
 
 

@@ -65,6 +65,18 @@ public class PDFcreator {
             table.addCell(new Cell(1,2).add(new Paragraph(Bill.data[i][3])));
         }
 
+        table.addCell(new Cell(1,10).add(new Paragraph("Sub-total")));
+        table.addCell(new Cell(1,2).add(new Paragraph(Bill.totol_amount)));
+
+        double tax = Integer.parseInt(Bill.totol_amount)*0.05;
+
+        table.addCell(new Cell(1,10).add(new Paragraph("GST amount")));
+        table.addCell(new Cell(1,2).add(new Paragraph(Double.toString(tax))));
+
+        double amount_payable = Integer.parseInt(Bill.totol_amount) +tax;
+
+        table.addCell(new Cell(1,10).add(new Paragraph("AMOUNT PAYABLE")));
+        table.addCell(new Cell(1,2).add(new Paragraph(Double.toString(amount_payable))));
 
 
 

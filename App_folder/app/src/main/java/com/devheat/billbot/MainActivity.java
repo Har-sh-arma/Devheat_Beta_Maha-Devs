@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void add_bill_info(String name, String address, String phone, String email, String GSTIN, String invoice_num,String date ,String count){
+        public void add_bill_info(String name, String address, String phone, String email, String GSTIN, String invoice_num, String date, String count, String total_amount){
             User.name = name;
             User.address = address;
             User.phone = phone;
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
             User.invoice_num = invoice_num;
             Bill.date = date;
             Bill.count = Integer.parseInt(count);
+            Bill.totol_amount = total_amount;
             Bill.data = new String[Bill.count][4];
         }
 
