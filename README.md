@@ -73,3 +73,5 @@ it can be stored and retrieved later.
 receive and store user data in user.json file. It is also used to pass on data to Javascript. It is also used to prompt the user for
 necessary usage permissions.
 
+PROJECT VIDEO LINK : https://drive.google.com/file/d/1n_pOABqFTvMYnN-6VMIA-FwWQ0Nn69Hd/view?usp=drivesdk
+
