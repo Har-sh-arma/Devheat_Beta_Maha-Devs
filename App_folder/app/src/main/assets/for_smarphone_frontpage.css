@@ -130,8 +130,8 @@ tr:nth-child(odd) {
   margin-top: 5%;
   background-color: #f3b1ab;
   border-radius: 50%;
-  padding-left: 6.5%;
-  padding-right: 6.5%;
+  padding-left:7%;
+  padding-right: 7%;
   font-size: 50px;
   padding-bottom:6px;
 }
