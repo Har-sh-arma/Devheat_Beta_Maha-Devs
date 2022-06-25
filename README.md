@@ -37,13 +37,12 @@ consumption and manage their Inventories.
 ## TECHNOLOGIES USED
 
 ### Languages:
-**HTML**    for Markup of UI
+- **HTML**    for Markup of UI
+- **CSS**    for Styling the UI
+- **JS**      for UI and data functionality
+- **JAVA**   for Storage of data and Rendering the website in Webview
 
-**CSS**    for Styling the UI
-
-**JS**      for UI and data functionality
-
-**JAVA**   for Storage of data and Rendering the website in Webview
+## BASIC OVERVIEW
 
 The **Markup** for the website is laid down in a very efficient manner. The naming of Classes and IDs has been done in a fashion
 that gives intuition about the content in them. The markup is designed to be responsive for a large range of Screen sizes.
@@ -58,6 +57,13 @@ It also adds the markup for a remove button to each item added on the list. When
 table items accordingly. It is also used to validate the form details submitted by the user in the Your Account section of the App.
 It is also used to call JAVA functions using the @JavascriptInterface in JAVA. It helped pass data from the webapp to JAVA so that 
 it can be stored and retrieved later.
+
+```
+        @JavascriptInterface
+        public String add_user_data(String json_string){
+            return User.AddUserData(json_string,mContext);
+        }
+```
 
 **JAVA** is used to create an Android web container with appropriate settings. It also helps establish a Javascript inteface and to 
 receive and store user data in user.json file. It is also used to pass on dat to Javascript. It is also used to prompt the user for
