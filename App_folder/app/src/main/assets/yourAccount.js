@@ -8,8 +8,14 @@ var user = {name:"Default",
             GSTIN:"22 AAAAA0000A 1Z5",
             invoice_num:0};
 
-function load_data(){
-    user = JSON.parse(Android.load_user_data());
+function load_data(){                                    //Loads data from the locally stored JSON file
+    a = Android.load_user_data();
+    if(a == ""){
+       console.log("Default user values");
+    }
+    else{
+        user = JSON.parse(a);
+    }
 }
 
 function add_data(){

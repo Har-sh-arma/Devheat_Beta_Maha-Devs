@@ -29,7 +29,7 @@ public class PDFcreator {
     public static void createpdf()throws FileNotFoundException {
 
         String pdfpath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();         //Setting the path for the pdf
-        File file = new File(pdfpath,User.invoice_num+".pdf");
+        File file = new File(pdfpath,Bill.date+User.invoice_num+".pdf");
         OutputStream outputStream = new FileOutputStream(file);
 
         PdfWriter writer = new PdfWriter(file);                                                                             //Creating a writer object

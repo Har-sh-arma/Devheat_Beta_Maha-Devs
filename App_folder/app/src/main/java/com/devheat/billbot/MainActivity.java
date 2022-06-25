@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     public class WebAppInterface {
         Context mContext;
 
@@ -159,12 +160,14 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-                if (isGranted) {try {
-                    PDFcreator.createpdf();
-                    Toast.makeText(this, "Pdf Created", Toast.LENGTH_SHORT).show();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+                if (isGranted) {
+                    try {
+                        PDFcreator.createpdf();
+                        Toast.makeText(this, "Pdf Created", Toast.LENGTH_SHORT).show();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
                 } else {
                     Toast.makeText(this, "Need Storage permission to store", Toast.LENGTH_LONG).show();
                 }

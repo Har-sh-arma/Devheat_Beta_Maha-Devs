@@ -28,7 +28,13 @@ let gst_amount = 0;
 let grand_total = 0;
 
 function load_data(){                                    //Loads data from the locally stored JSON file
-    user = JSON.parse(Android.load_user_data());
+    a = Android.load_user_data();
+    if(a == ""){
+       console.log("Default user values");
+    }
+    else{
+        user = JSON.parse(a);
+    }
 }
 function add_data(){                                    //Adds data to the locally stored JSON file
     return Android.add_user_data(JSON.stringify(user));
