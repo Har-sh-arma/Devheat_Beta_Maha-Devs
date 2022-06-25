@@ -23,8 +23,8 @@ with image icons to make the usage obvious.
 With the skills that we had and the time provided, we chose Web based native application as our implementation method.
 
 Another reason for choosing to implement our solution as a native app is that it **DOES NOT REQUIRE AN ACTIVE INTERNET CONNECTION**.
-Which even if present in remote areas is used sparingly. Our app does not require connection to store and retrieve data 
-from local storage. We also store the required PDFs on the clients device so that it is available at a moments notice.
+Which even if present in remote areas is used sparingly. Our app stores and retrieves data from local storage. 
+We also store the required PDFs on the clients device so that it is available at a moments notice.
 This also helps our Clients feel secure about their business data's PRIVACY.
 
 ---
@@ -70,6 +70,6 @@ it can be stored and retrieved later.
 ```
 
 **JAVA** is used to create an Android web container with appropriate settings. It also helps establish a Javascript inteface and to 
-receive and store user data in user.json file. It is also used to pass on dat to Javascript. It is also used to prompt the user for
+receive and store user data in user.json file. It is also used to pass on data to Javascript. It is also used to prompt the user for
 necessary usage permissions.
 
