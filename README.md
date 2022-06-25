@@ -1,10 +1,10 @@
 # Devheat_Beta_Maha-Devs
-Repository for team project  under GDSC IIIT Surat.
+**Repository for team project under GDSC IIIT Surat.**
 
+---
 We can boil down the problem statement to these basic VALUES:
-
 ## ACCESSIBILITY FUNCTIONALITY USABILITY
-
+---
 We are trying to provide a solution for vendors and stall owners who wish to maintain a record of GST invoices and
 provide customers a legitimate invoice.
 
@@ -19,6 +19,7 @@ with image icons to make the usage obvious.
 
 ![image](https://user-images.githubusercontent.com/90756795/175781058-eaffeca8-00a7-4b0c-ac2e-ed00b8378e10.png)
 
+---
 With the skills that we had and the time provided, we chose Web based native application as our implementation method.
 
 Another reason for choosing to implement our solution as a native app is that it **DOES NOT REQUIRE AN ACTIVE INTERNET CONNECTION**.
@@ -26,6 +27,7 @@ Which even if present in remote areas is used sparingly. Our app does not requir
 from local storage. We also store the required PDFs on the clients device so that it is available at a moments notice.
 This also helps our Clients feel secure about their business data's PRIVACY.
 
+---
 ## FUTURE PROSPECTS
 
 Given that the UI of our application is web based, It is easier to port our application for other operating systems.
@@ -34,6 +36,7 @@ expand our customer base to Large Business owners because of the versatility pro
 We can move Storage of data for our Larger clients to the Cloud and Also Train models on the data to help them predict 
 consumption and manage their Inventories.
 
+---
 ## TECHNOLOGIES USED
 
 ### Languages:
@@ -42,6 +45,7 @@ consumption and manage their Inventories.
 - **JS**      for UI and data functionality
 - **JAVA**   for Storage of data and Rendering the website in Webview
 
+---
 ## BASIC OVERVIEW
 
 The **Markup** for the website is laid down in a very efficient manner. The naming of Classes and IDs has been done in a fashion
