@@ -113,17 +113,18 @@ public class MainActivity extends AppCompatActivity {
         @JavascriptInterface
         public void printpdf(){
             if (ContextCompat.checkSelfPermission(
-                    mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                    mContext, Manifest.permission.READ_EXTERNAL_STORAGE) ==
                     PackageManager.PERMISSION_GRANTED){try {
                     PDFcreator.createpdf();
                     Toast.makeText(mContext, "Pdf Created", Toast.LENGTH_SHORT).show();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
+                Toast.makeText(mContext, "Already a file with the same invoice number and GSTIN", Toast.LENGTH_SHORT).show();
                 }
             }
             else{
                 requestPermissionLauncher.launch(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                        Manifest.permission.READ_EXTERNAL_STORAGE);
             }
         }
 
@@ -166,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(this, "Pdf Created", Toast.LENGTH_SHORT).show();
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
+                        Toast.makeText(this, "Already a file with the same invoice number and GSTIN", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
