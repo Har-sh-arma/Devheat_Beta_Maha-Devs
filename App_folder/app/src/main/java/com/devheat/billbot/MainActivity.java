@@ -11,14 +11,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-import org.json.*;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
@@ -162,11 +160,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
                 if (isGranted) {try {
-                    PDFcreator.createpdf();
-                    Toast.makeText(this, "Pdf Created", Toast.LENGTH_SHORT).show();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }try {
                     PDFcreator.createpdf();
                     Toast.makeText(this, "Pdf Created", Toast.LENGTH_SHORT).show();
                 } catch (FileNotFoundException e) {
