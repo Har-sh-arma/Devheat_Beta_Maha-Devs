@@ -71,7 +71,7 @@ it can be stored and retrieved later.
 
 **JAVA** is used to create an Android web container with appropriate settings. It also helps establish a Javascript inteface and to 
 receive and store user data in user.json file. It is also used to pass on data to Javascript. It is also used to prompt the user for
-necessary usage permissions.
+necessary usage permissions. And to store the generated invoice as a PDF in the Downloads folder.
 
 PROJECT VIDEO LINK : https://drive.google.com/file/d/1n_pOABqFTvMYnN-6VMIA-FwWQ0Nn69Hd/view?usp=drivesdk
 
